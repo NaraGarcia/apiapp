@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserService {
 
-  private url = "https://reqres.in/api/users";
+  private url = "https://reqres.in/api/users";      //o site da api
 
   constructor(private http: HttpClient) { 
 

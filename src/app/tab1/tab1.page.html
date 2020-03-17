@@ -16,7 +16,8 @@
       <div>
         <h1>{{ user.first_name }} {{ user.last_name }}</h1>
         <!--"mailto" faz com que clicando no e-mail, já abra o programa de e-mail do dispositivo com o e-mail já preenchido-->
-        <a [href]="'mailto:' + user.email"> {{ user.email }}</a>
+        <a [href]="'mailto:' + user.email">{{user.email}}</a>
+        
       </div>
     </ion-label>
   </ion-item>
@@ -25,16 +26,23 @@
     <ion-row>
 
       <ion-col>
-        <ion-button>
-          <ion-icon slot="icon-only" name="star"></ion-icon>
-        </ion-button>
+        <ion-button expand = "block" (click) = "buscarUsuarios(page-1)" *ngIf="page > 1"> <!--lista é FOR, condição é IF-->
 
+          <ion-icon slot="icon-only" name="arrow-undo-outline"></ion-icon>
+        </ion-button>
       </ion-col>
+
       <ion-col>
-      </ion-col>
-      
+        {{page}} de {{totalPaginas}}
+      </ion-col>  
+
       <ion-col>
+        <ion-button expand = "block" (click) ="buscarUsuarios(page+1)" *ngIf="page < totalPaginas">
+          <ion-icon slot="icon-only" name="arrow-redo-outline"></ion-icon>
+        </ion-button>
       </ion-col>
+
+    
 
     </ion-row>
   </ion-grid>

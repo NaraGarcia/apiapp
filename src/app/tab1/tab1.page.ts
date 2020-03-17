@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from '../servicos/user.service';
+import { Button } from 'protractor';
 
 @Component({
   selector: 'app-tab1',
@@ -19,6 +20,7 @@ export class Tab1Page {
   //Para guardar a lista de usuários
   public listaUsuarios = [];
 
+
   constructor(private userService: UserService) {
     this.buscarUsuarios(this.page);
   }
@@ -33,7 +35,9 @@ export class Tab1Page {
       this.totalUsuarios = dados['total'];
 
       this.listaUsuarios = dados['data'];
+      
     });
+
   }
 
 
